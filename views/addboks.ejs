@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Eas-e-Library</title>
+    <meta name="description" content="Eas-e-Library">
+    <meta name="keywords"
+        content="Eas-e-Library, Easy Library, e-library, Library, Library Management System, Online Library, Digital Library, Books">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <!--Nav-bar-->
+        <h1 class="logo"><a href="/#home" class="brand-link">Eas-e-Library</a></h1>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav class="top-navbar">
+            <ul class="menu">
+                <li class="main-list"><a href="/#about"><label>About Us </label></a></li>
+                <li class="main-list"><a href="/#contact"><label>Contact Us</label></a></li>
+                <li class="main-list"><a href="/#location"><label>Location</label></a></li>
+                <li class="main-list "><a href="/#modal" class="modal-trigger"><label>Sign in </label> </a></li>
+            </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </header>
+
+
+    <div class="signup-page">
+        <section>
+            <section class="modal-header">
+                <h2 class="modal-title">
+                    <div style="text-align: center;">Sign up</div>
+                </h2>
+            </section>
+            <div class="form-container">
+                <form action="addboks" method="POST">
+                    <% if(typeof errors != 'undefined'){ %>
+                    <div class="modal" id="modal" style="display: table;"
+                        onclick="document.getElementById('modal').style.display='none';">
+                        <div class="modal-dialog">
+                            <section class="modal-content">
+                                <section class="modal-header">
+                                    <h2 class="modal-title">Error</h2>
+                                    <a href="#" class="modal-close">&times;</a>
+                                </section>
+                                <div class="modal-body" style="font-size:xx-large; text-align: center;">
+                                    <% errors.forEach(function(error){ %>
+                                    <%= error.msg %>
+                                    <%}); %>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <%} %>
+                    <div class="signin-input">
+                        <span>Registration Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="number" name="reg_no" id="reg_no" required="required"
+                                value="<%= typeof reg_no!='undefined' ? reg_no : '' %>" /></span>
+                    </div>
+                    <div class="signin-input">
+                        <span>Call no: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="number" name="call_no" id="call_no" required="required"
+                                value="<%= typeof call_no!='undefined' ? call_no : '' %>" /></span>
+                    </div>
+                    <div class="signin-input">
+                        <span>Title: &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="title" id="title" required="required"
+                                value="<%= typeof title!='undefined' ? title : '' %>" /></span>
+                    </div>
+                    <div class="signin-input">
+                        <span>Subtitle:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="subtitle" id="subtitle" required="required"
+                                placeholder="Choose strong one."
+                                value="<%= typeof subtitle!='undefined' ? subtitle : '' %>" /></span>
+                    </div>
+                    <div class="signin-input">
+                        <span>Author:&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="author" id="author" required="required"
+                                value="<%= typeof author!='undefined' ? author : '' %>" /></span>
+                    </div>
+                    <div class="signin-input">
+                        <span>Category:&nbsp;
+                            <input type="text" name="category" id="category"
+                                value="<%= typeof category!='undefined' ? category : '' %>" /></span>
+                    </div>
+                    <div class="signin-input">
+                        <span>Volume:&nbsp;
+                            <input type="text" name="volume" id="volume" required="required"
+                                value="<%= typeof volume!='undefined' ? volume : '' %>" /></span>
+                    </div>
+                    <div>
+                        <p><input type="checkbox" name="accept-terms" id="new-accept-terms" required="required">I hereby
+                            accept the <a href="#" style="display: inline;">terms and conditions</a> of the library.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <input type="submit" value="Submit" class="submit-signin" id="new-submit">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <hr>
+        <p style="text-align:center;">Already have an account? <a href="/staffs/staffsignin"
+                style="display: inline;">Sign In </a>instead.</p>
+    </div>
+
+</body>
+
+</html>

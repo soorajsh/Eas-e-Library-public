@@ -1,0 +1,529 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #2980b4;
+    font-family: 'Dejavu Serif', sans-serif;
+    font-weight: 300;
+}
+
+.container {
+    /*height: 200vh;*/
+    background-color: green;
+    background-blend-mode: multiply;
+    background-size: cover;
+    display: grid;
+    /*place-items: center;*/
+    padding-top: 80px;
+}
+/* navigation styles start here */
+
+header {
+    background: #2980b4;
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+
+li,
+a,
+label {
+    display: block;
+}
+
+.main-list:hover {
+    background-color: green;
+}
+
+.nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+/* .nav-toggle:focus~.nav-toggle-label {
+    outline: 3px solid rgba(lightblue, .75);
+}
+    */
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background-color: #2980b4;
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 300ms ease-in-out;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+.nav-toggle:checked~nav {
+    transform: scale(1, 1);
+}
+
+.nav-toggle:checked~nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+    .nav-toggle-label {
+        display: none;
+    }
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+    .logo {
+        grid-column: 2 / 3;
+    }
+    nav {
+        /* all: unset;  this causes issues with Edge, since it's unsupported  */
+        position: relative;
+        text-align: left;
+        transition: none;
+        transform: scale(1, 1);
+        background: none;
+        top: initial;
+        left: initial;
+        /* end Edge support stuff */
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    nav ul {
+        display: flex;
+    }
+    nav li {
+        margin-left: 3em;
+        margin-bottom: 0;
+    }
+    nav a {
+        opacity: 1;
+        position: relative;
+    }
+    nav a::before {
+        content: '';
+        display: block;
+        height: 5px;
+        background: black;
+        position: absolute;
+        top: -.75em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+    }
+    nav a:hover::before {
+        transform: scale(1, 1);
+    }
+}
+
+.jumptarget {
+    display: block;
+    height: 228px;
+    margin-top: -228px;
+}
+
+@media screen and (min-width: 800px) {
+    .jumptarget {
+        display: inline;
+        /* height: 78px;
+        margin-top: -78px; */
+        padding-top: 78px;
+    }
+}
+/* @media screen and (max-width: 800px) {
+    .modal-dialog {
+        padding-top: 78px;
+    }
+} */
+
+.modal {
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.modal2 {
+    display: table;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.modal:target {
+    display: table;
+}
+
+.modal2:target {
+    display: none;
+}
+
+.modal-dialog,
+.modal-dialog2 {
+    display: table-cell;
+    vertical-align: middle;
+    /*background-color: grey;*/
+}
+
+.modal-content,
+.modal-content2 {
+    background: rgba(255, 255, 255, 1);
+    width: 60%;
+    min-width: 300px;
+    margin: auto;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.modal-header,
+.modal-header2 {
+    background: #2980b9;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    position: relative;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.modal-title,
+.modal-title2 {
+    margin: 0;
+}
+
+.modal-close,
+.modal-close2 {
+    background-color: red;
+    color: black;
+    text-decoration: none;
+    /* text-transform:bold; */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+/* Slider Section starts here */
+
+.slider {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    /*background: white;*/
+    /*box-shadow: 0 100px 200px -100px rgba(0,0,0,0.2);*/
+    display: flex;
+    overflow: hidden;
+}
+
+.slide {
+    height: 100%;
+    display: flex;
+    /*align-items: center;*/
+    animation: slideshow 16s linear infinite;
+}
+
+.slide img {
+    height: 100%;
+    padding: 0 5px 0 0;
+    align-items: center;
+}
+
+@keyframes slideshow {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.slider::before,
+.slider::after {
+    height: 100%;
+    width: 18%;
+    position: absolute;
+    content: "";
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+/* Search bar section starts here*/
+
+.search-bar {
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    /*margin-top: 5px;*/
+    /*position: relative;*/
+    background-color: white;
+    display: inline-flex;
+    background-color: #2980b4;
+    /*overflow: hidden;*/
+}
+
+.search-form {
+    height: 60px;
+    width: 85%;
+    align-content: center;
+}
+
+.search-text {
+    margin-left: 10%;
+    /*margin-right: 40%;*/
+    height: 100%;
+    width: 90%;
+    font-size: 24px;
+    /*text-align: center;*/
+}
+
+.search-text::placeholder {
+    text-align: center;
+    /*text-decoration: */
+}
+
+.search-icon {
+    height: 70%;
+    width: 20%;
+    position: inherit;
+    /*margin-left: -7%;*/
+}
+
+.search-icon:hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+    .search-icon {
+        margin-left: -5%;
+    }
+}
+/*Featured books
+.featured-container{
+margin-left: 5%;
+margin-right: 5%;
+}
+.featured-element{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+grid-column: 3/4;
+}
+.featured-image{
+height: ;
+width: ;
+}*/
+
+.about-us-adjuster {
+    background-color: green;
+    display: grid;
+    grid-template-columns: 1fr 14fr 1fr;
+}
+/* .about-us {
+    /margin-left: ;
+margin-right: ;
+}
+    */
+
+.contact-us-adjuster {
+    background-color: green;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+}
+/* .contact-us {
+        margin-left: ;
+margin-right: ; 
+} */
+
+@media screen and (min-width: 800px) {
+    .wrapper {
+        background-color: green;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.wrapper {
+    background-color: #2980b4;
+}
+
+.larger-map {
+    background-color: #2980b4;
+    text-align: center;
+}
+
+.location-adjuster {
+    background-color: #2980b4;
+}
+
+.location-header {
+    /* margin: none; */
+    padding: 10px;
+    text-align: center;
+    background-color: yellow;
+}
+/*Dialog Box starts here*/
+
+.signin-input {
+    margin: 1rem;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+span {
+    font-weight: bold;
+    width: 100%;
+    justify-content: center;
+}
+
+#member_name,
+#member_address,
+#member_email,
+#email,
+#passwd,
+#member_passwd,
+#member_passwd2,
+#member_citizen_number,
+#member_citizenship {
+    width: 55%;
+    height: 36px;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.submit-signin {
+    width: 30%;
+    height: 40px;
+    background: blue;
+    font-family: verdana;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    cursor: pointer;
+    outline: none;
+    margin: 0 auto;
+}
+
+.forgot-link {
+    margin: 1rem;
+    width: 100%;
+}
+
+.submit-request {
+    width: auto;
+    height: 32px;
+    background: green;
+    font-family: verdana;
+    font-size: 22px;
+    color: white;
+    border-radius: 5px 5px 5px 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    cursor: pointer;
+    outline: none;
+    margin: 0 auto;
+    text-decoration: none;
+    justify-content: center;
+    vertical-align: middle;
+}
+/* Signup page starts here.*/
+
+.signup-page {
+    padding-top: 80px;
+    background: rgba(255, 255, 255, 1);
+    width: 80%;
+    min-width: 300px;
+    margin: auto;
+    border-radius: 10px;
+    /* padding: 1rem; */
+}
+
+.gender-input {
+    display: unset;
+}

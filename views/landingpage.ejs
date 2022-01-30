@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Eas-e-Library</title>
+    <meta name="description" content="Eas-e-Library">
+    <meta name="keywords"
+        content="Eas-e-Library, Easy Library, e-library, Library, Library Management System, Online Library, Digital Library, Books">
+    <script src='jquery-3.2.1.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body>
+    <header id="header">
+        <!--Nav-bar-->
+        <h1 class="logo"><a href="#home" class="brand-link">Eas-e-Library</a></h1>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav class="top-navbar">
+            <ul class="menu">
+                <li class="main-list"><a href="#about"><label>About Us </label></a></li>
+                <li class="main-list"><a href="#contact"><label>Contact Us</label></a></li>
+                <li class="main-list"><a href="#location"><label>Location</label></a></li>
+                <li class="main-list "><a href="#modal" class="modal-trigger"
+                        onclick="document.getElementById('header').style.position='unset';"><label>Sign in </label> </a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </header>
+
+    <!--Slider-->
+    <div class="container" id="home">
+        <div class="slider">
+            <div class="slide">
+                <img src="../images/slider_image1.jpg">
+                <img src="../images/slider_image2.jpg">
+                <img src="../images/slider_image3.jpg">
+                <img src="../images/slider_image4.jpg">
+                <img src="../images/slider_image5.jpg">
+            </div>
+            <div class="slide">
+                <img src="../images/slider_image1.jpg">
+                <img src="../images/slider_image2.jpg">
+                <img src="../images/slider_image3.jpg">
+                <img src="../images/slider_image4.jpg">
+                <img src="../images/slider_image5.jpg">
+            </div>
+        </div>
+        <!--Search Bar-->
+        <div class="search-bar">
+            <form action="/members/search" class="search-form" id="search-form" method="post">
+                <input type="text" name="search_text" placeholder="Enter keywords to search" class="search-text"
+                    id="search_text">
+            </form>
+            <img src="../images/searchicon.svg" class="search-icon" id="search-icon">
+        </div>
+        <!--About Us Section-->
+        <div class="about-us-adjuster">
+            <div></div>
+            <div class="about-us">
+                <span class="jumptarget" id="about"></span>
+                <h2>About Us</h2>
+                <p class="about-us-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                    est laborum.</p>
+            </div>
+            <div></div>
+        </div>
+    </div>
+    <script>
+        $("#search-icon").click(function () {
+            $("#search-form").submit();
+        });
+    </script>
+    <!-- Contact Us Section -->
+    <div class="wrapper">
+        <div class="contact-us-adjuster">
+            <div></div>
+            <div class="contact-us">
+                <span class="jumptarget" id="contact"></span>
+                <h2>Contact Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                    est laborum.</p>
+            </div>
+        </div>
+        <!-- Location Section -->
+        <div class="location-adjuster">
+            <div class="location-header">
+                <span class="jumptarget" id="location"></span>
+                <h2 class="location-block">Location</h2>
+            </div>
+            <div class="location-details">
+                <!-- <div class="mapouter">
+						        <div class="openstreetmap">
+						          <iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=85.3377065062523%2C27.670889077744373%2C85.33976107835771%2C27.672152806610313&amp;layer=mapnik&amp;marker=27.671520944004342%2C85.33873379230499" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=27.67152&amp;mlon=85.33873#map=19/27.67152/85.33873">View Larger Map</a></small>
+						          </div>
+								</div>
+							</div>  -->
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe width="100%" height="500" id="gmap_canvas"
+                            src="https://maps.google.com/maps?q=Nepal%20College%20of%20Information%20technology%20&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        </iframe>
+                        <a href="https://www.embedgooglemap.net/blog/nordvpn-coupon-code/">embedgooglemap.net</a>
+                    </div>
+                    <style>
+                        .mapouter {
+                            position: relative;
+                            text-align: right;
+                            height: 500px;
+                            width: 100%;
+                        }
+
+                        .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 500px;
+                            width: 100%;
+                        }
+                    </style>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-dialog">
+            <section class="modal-content">
+                <section class="modal-header">
+                    <h2 class="modal-title">Member Sign in</h2>
+                    <a href="#" class="modal-close"
+                        onclick="document.getElementById('header').style.position='fixed';">&times;</a>
+                </section>
+                <div class="modal-body">
+                    <form action="/members/signin" method="POST"
+                        onsubmit="document.getElementById('modal2').style.display='table';document.getElementById('modal').style.display='block';">
+                        <% if(typeof errors_signin != 'undefined'){ %>
+                        <div class="modal2" id="modal2" style="display: table;"
+                            onclick="document.getElementById('modal2').style.display='none';">
+                            <div class="modal-dialog2">
+                                <section class="modal-content2">
+                                    <section class="modal-header2">
+                                        <h2 class="modal-title2">Error</h2>
+                                        <a href="#" class="modal-close2">&times;</a>
+                                    </section>
+                                    <div class="modal-body2" style="font-size:xx-large; text-align: center;">
+                                        <% errors_signin.forEach(function(error){ %>
+                                        <%= error.msg %>
+                                        <%}); %>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <%} %>
+
+
+                        <div class="signin-input">
+                            <span>Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="email" name="email" id="email" required="required"
+                                    value="<%= typeof email!='undefined' ? email : '' %>" /></span>
+                        </div>
+                        <div class="signin-input">
+                            <span>Password:&nbsp;&nbsp;&nbsp;
+                                <input type="password" name="passwd" id="passwd" required="required"
+                                    value="<%= typeof passwd!='undefined' ? passwd : '' %>" /></span>
+                        </div>
+                        <div style="text-align: center;">
+                            <input type="submit" value="Submit" class="submit-signin">
+                            <p style="font-size:medium; text-align: center; margin-top: 0;margin-bottom: 0;">OR</p>
+                            <a href="/staffs/staffsignin" class="forgot-link"
+                                onclick="document.getElementById('header').style.position='fixed';">Staff Sign In</a>
+                        </div>
+                    </form>
+                    <hr>
+                    <div style="text-align: center;">
+                        <a href="/members/signup" class="submit-request">Request New Account</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+
+</html>
